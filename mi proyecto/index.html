@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="rgUA-3-KT4G6BMGA16_0-JHRE4GDNLn-rRAzTjen8Dc" />
     <title>ElectroSync · Electricidad + IA</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+    <script src="https://tailwindcss.com"></script>
+    <link href="https://googleapis.com" rel="stylesheet" />
     <style>
         * { scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background-color: #0f172a; }
@@ -20,8 +20,9 @@
         .hover-bg-amber-600:hover { background-color: #d97706; }
         .bg-cyan-500 { background-color: #06b6d4; }
         .hover-bg-cyan-600:hover { background-color: #0891b2; }
-        .service-card { background: #1e293b; transition: 0.3s; border: 1px solid #334155; }
+        .service-card { background: #1e293b; transition: 0.3s; border: 1px solid #334155; position: relative; overflow: hidden; }
         .service-card:hover { transform: translateY(-6px); border-color: #fbbf24; box-shadow: 0 12px 30px -10px #00000080; }
+        
         .whatsapp-float {
             position: fixed; bottom: 28px; right: 28px; z-index: 999;
             background: #25D366; padding: 14px; border-radius: 60px;
@@ -35,470 +36,79 @@
         
         /* FONDO DE PANTALLA CON INGENIEROS TRABAJANDO */
         .bg-full-engineers {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800"><rect width="1200" height="800" fill="%230f172a"/><rect width="1200" height="800" fill="url(%23grid)" opacity="0.08"/><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="%23fbbf24" stroke-width="0.5" opacity="0.3"/></pattern><linearGradient id="glow1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23fbbf2410"/><stop offset="100%" stop-color="%2322d3ee10"/></linearGradient></defs><rect width="1200" height="800" fill="url(%23glow1)"/><text x="50" y="60" font-family="Inter" font-size="14" fill="%23fbbf24" opacity="0.06" font-weight="bold">ELECTROSYNC</text><text x="950" y="780" font-family="Inter" font-size="14" fill="%2322d3ee" opacity="0.06" font-weight="bold">⚡🤖</text><g opacity="0.08"><circle cx="200" cy="150" r="180" fill="%23fbbf24"/><circle cx="1000" cy="650" r="200" fill="%2322d3ee"/></g><g opacity="0.5"><path d="M0 400 L1200 400" stroke="%23fbbf2420" stroke-width="1"/><path d="M600 0 L600 800" stroke="%2322d3ee20" stroke-width="1"/></g><g opacity="0.6"><path d="M150 80 L180 110 L160 130 L190 160" stroke="%23fbbf24" stroke-width="2"/><path d="M1050 640 L1020 670 L1040 690 L1010 720" stroke="%2322d3ee" stroke-width="2"/></g><g opacity="0.5"><circle cx="100" cy="700" r="6" fill="%23fbbf24"/><circle cx="1100" cy="100" r="8" fill="%2322d3ee"/><circle cx="300" cy="500" r="4" fill="%23fbbf24"/><circle cx="900" cy="300" r="5" fill="%2322d3ee"/></g><g opacity="0.3"><path d="M50 200 L80 170 L100 190 L130 160" stroke="%23fbbf24" stroke-width="1.5"/><path d="M1150 600 L1120 630 L1100 610 L1070 640" stroke="%2322d3ee" stroke-width="1.5"/></g><g opacity="0.7"><circle cx="250" cy="350" r="120" fill="none" stroke="%23fbbf2430" stroke-width="2"/><circle cx="250" cy="350" r="90" fill="none" stroke="%2322d3ee20" stroke-width="1.5"/><circle cx="250" cy="350" r="60" fill="none" stroke="%23fbbf2420" stroke-width="1"/></g><g opacity="0.7"><circle cx="950" cy="450" r="140" fill="none" stroke="%2322d3ee30" stroke-width="2"/><circle cx="950" cy="450" r="100" fill="none" stroke="%23fbbf2420" stroke-width="1.5"/><circle cx="950" cy="450" r="70" fill="none" stroke="%2322d3ee20" stroke-width="1"/></g><text x="530" y="160" font-family="Inter" font-size="28" font-weight="bold" fill="%23fbbf24" opacity="0.10">ELECTROSYNC</text><text x="510" y="220" font-family="Inter" font-size="16" fill="%2322d3ee" opacity="0.08">⚡ Electricidad + IA 🤖</text></svg>');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            position: relative;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://w3.org" viewBox="0 0 1200 800" width="1200" height="800"><rect width="1200" height="800" fill="%230f172a"/><rect width="1200" height="800" fill="url(%23grid)" opacity="0.08"/><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="%23fbbf24" stroke-width="0.5" opacity="0.3"/></pattern><linearGradient id="glow1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23fbbf2410"/><stop offset="100%" stop-color="%2322d3ee10"/></linearGradient></defs><rect width="1200" height="800" fill="url(%23glow1)"/><text x="50" y="60" font-family="Inter" font-size="14" fill="%23fbbf24" opacity="0.06" font-weight="bold">ELECTROSYNC</text><text x="950" y="780" font-family="Inter" font-size="14" fill="%2322d3ee" opacity="0.06" font-weight="bold">⚡🤖</text><g opacity="0.08"><circle cx="200" cy="150" r="180" fill="%23fbbf24"/><circle cx="1000" cy="650" r="200" fill="%2322d3ee"/></g><g opacity="0.5"><path d="M0 400 L1200 400" stroke="%23fbbf2420" stroke-width="1"/><path d="M600 0 L600 800" stroke="%2322d3ee20" stroke-width="1"/></g><g opacity="0.6"><path d="M150 80 L180 110 L160 130 L190 160" stroke="%23fbbf24" stroke-width="2"/><path d="M1050 640 L1020 670 L1040 690 L1010 720" stroke="%2322d3ee" stroke-width="2"/></g><g opacity="0.5"><circle cx="100" cy="700" r="6" fill="%23fbbf24"/><circle cx="1100" cy="100" r="8" fill="%2322d3ee"/><circle cx="300" cy="500" r="4" fill="%23fbbf24"/><circle cx="900" cy="300" r="5" fill="%2322d3ee"/></g><g opacity="0.3"><path d="M50 200 L80 170 L100 190 L130 160" stroke="%23fbbf24" stroke-width="1.5"/><path d="M1150 600 L1120 630 L1100 610 L1070 640" stroke="%2322d3ee" stroke-width="1.5"/></g><g opacity="0.7"><circle cx="250" cy="350" r="120" fill="none" stroke="%23fbbf2430" stroke-width="2"/><circle cx="250" cy="350" r="90" fill="none" stroke="%2322d3ee20" stroke-width="1.5"/><circle cx="250" cy="350" r="60" fill="none" stroke="%23fbbf2420" stroke-width="1"/></g><g opacity="0.7"><circle cx="950" cy="450" r="140" fill="none" stroke="%2322d3ee30" stroke-width="2"/><circle cx="950" cy="450" r="100" fill="none" stroke="%23fbbf2420" stroke-width="1.5"/><circle cx="950" cy="450" r="70" fill="none" stroke="%2322d3ee20" stroke-width="1"/></g><text x="530" y="160" font-family="Inter" font-size="28" font-weight="bold" fill="%23fbbf24" opacity="0.10">ELECTROSYNC</text><text x="510" y="220" font-family="Inter" font-size="16" fill="%2322d3ee" opacity="0.08">⚡ Electricidad + IA 🤖</text></svg>');
+            background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; position: relative;
         }
-        
-        .bg-full-engineers::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(ellipse at 50% 50%, transparent 30%, #0f172a 90%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        /* Overlay sutil para mejorar legibilidad */
-        .content-overlay {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .content-overlay > * {
-            backdrop-filter: blur(0px);
-        }
-        
-        /* Tarjetas con fondo más sólido para contraste */
-        .service-card, .tech-panel, form, footer, .section-bg {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(51, 65, 85, 0.5);
-        }
-        
-        .service-card {
-            background: rgba(30, 41, 59, 0.85);
-            backdrop-filter: blur(4px);
-        }
-        
-        .service-card:hover {
-            background: rgba(30, 41, 59, 0.95);
-            border-color: #fbbf24;
-        }
-        
-        /* Navbar con mayor opacidad */
-        nav {
-            background: rgba(15, 23, 42, 0.92) !important;
-            backdrop-filter: blur(12px);
-        }
-        
-        .tech-panel {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(10px);
-        }
-        
-        /* Logotipo en la camisa de los ingenieros (elemento decorativo) */
-        .logo-embed {
-            position: absolute;
-            font-size: 12px;
-            font-weight: 800;
-            color: #fbbf24;
-            background: rgba(15, 23, 42, 0.7);
-            padding: 2px 8px;
-            border-radius: 4px;
-            border: 1px solid #fbbf2430;
-            letter-spacing: 1px;
-            pointer-events: none;
-        }
-        
-        .glow-dot {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #fbbf24;
-            box-shadow: 0 0 20px #fbbf24;
-            animation: pulse-dot 3s ease-in-out infinite;
-        }
+        .bg-full-engineers::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse at 50% 50%, transparent 30%, #0f172a 90%); pointer-events: none; z-index: 0; }
+        .content-overlay { position: relative; z-index: 1; }
+        .content-overlay > * { backdrop-filter: blur(0px); }
+        .service-card, .tech-panel, form, footer, .section-bg { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); border: 1px solid rgba(51, 65, 85, 0.5); }
+        .service-card { background: rgba(30, 41, 59, 0.85); backdrop-filter: blur(4px); }
+        .service-card:hover { background: rgba(30, 41, 59, 0.95); border-color: #fbbf24; }
+        nav { background: rgba(15, 23, 42, 0.92) !important; backdrop-filter: blur(12px); }
+        .tech-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(10px); }
+        .logo-embed { position: absolute; font-size: 12px; font-weight: 800; color: #fbbf24; background: rgba(15, 23, 42, 0.7); padding: 2px 8px; border-radius: 4px; border: 1px solid #fbbf2430; letter-spacing: 1px; pointer-events: none; }
+        .glow-dot { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: #fbbf24; box-shadow: 0 0 20px #fbbf24; animation: pulse-dot 3s ease-in-out infinite; }
         .glow-dot.cyan { background: #22d3ee; box-shadow: 0 0 20px #22d3ee; }
-        @keyframes pulse-dot {
-            0%, 100% { opacity: 0.2; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.3); }
-        }
-        
-        .quality-badge {
-            display: inline-block;
-            background: #fbbf2410;
-            border: 1px solid #fbbf2430;
-            border-radius: 30px;
-            padding: 6px 18px;
-            font-size: 11px;
-            color: #fbbf24;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        
-        /* Efecto de brillo en tarjetas */
-        .service-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 16px;
-            background: linear-gradient(135deg, transparent 50%, #fbbf2405);
-            pointer-events: none;
-        }
-        .service-card { position: relative; overflow: hidden; }
-        
-        /* Mejora de contraste en títulos */
-        h1, h2, h3, .text-white {
-            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
-        }
+        @keyframes pulse-dot { 0%, 100% { opacity: 0.2; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.3); } }
+        .quality-badge { display: inline-block; background: #fbbf2410; border: 1px solid #fbbf2430; border-radius: 30px; padding: 6px 18px; font-size: 11px; color: #fbbf24; letter-spacing: 1px; text-transform: uppercase; }
+        .service-card::after { content: ''; position: absolute; inset: 0; border-radius: 16px; background: linear-gradient(135deg, transparent 50%, #fbbf2405); pointer-events: none; }
     </style>
-</head>
-<body class="text-slate-200 antialiased bg-full-engineers">
 
-    <!-- NAVBAR -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700/60 px-6 py-4 flex items-center justify-between max-w-7xl mx-auto">
-        <div class="text-2xl font-bold tracking-tight flex items-center gap-2">
-            <span class="text-amber-400">Electro</span><span class="text-cyan-400">Sync</span>
-            <span class="text-xs bg-amber-400/20 text-amber-300 px-2 py-0.5 rounded-full">⚡</span>
-        </div>
-        <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-            <a href="#servicios" class="hover:text-amber-400 transition">Servicios</a>
-            <a href="#contacto" class="hover:text-amber-400 transition">Contacto</a>
-            <a href="#encuesta" class="bg-amber-500 hover:bg-amber-600 text-slate-900 px-5 py-2 rounded-full font-semibold transition shadow-lg shadow-amber-500/20">Diagnóstico Gratis</a>
-        </div>
-        <div class="md:hidden flex items-center gap-4">
-            <a href="#encuesta" class="bg-amber-500 text-slate-900 px-4 py-1.5 rounded-full text-sm font-semibold">Diagnóstico</a>
+    <!-- DATOS ESTRUCTURADOS (MARKUP INVISIBLE PARA GOOGLE) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://vercel.app",
+          "name": "ElectroSync",
+          "url": "https://vercel.app"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Portafolio Audiovisual ElectroSync",
+          "description": "Demostración en video de automatización y servicios eléctricos con IA.",
+          "thumbnailUrl": "https://unsplash.com",
+          "uploadDate": "2026-01-01T00:00:00+00:00",
+          "contentUrl": "https://youtube.com",
+          "embedUrl": "https://youtube.com"
+        },
+        {
+          "@type": "ImageGallery",
+          "name": "Galería de Proyectos de Ingeniería y Marketing",
+          "description": "Imágenes de portafolio técnico de ElectroSync.",
+          "image": [
+            "https://unsplash.com"
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-full-engineers text-slate-100 antialiased">
+
+    <!-- BARRA NAVEGACIÓN -->
+    <nav class="fixed top-0 inset-x-0 z-50 border-b border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-wider text-white flex items-center gap-2">
+                <span class="text-amber-400">⚡</span>ElectroSync
+            </a>
+            <div class="flex items-center gap-8">
+                <a href="#servicios" class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Servicios</a>
+                <a href="#contacto" class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Contacto</a>
+                <a href="#contacto" class="hidden md:inline-flex px-5 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase bg-amber-500 hover:bg-amber-600 text-slate-950 transition-all hover-glow-amber">Diagnóstico Gratis</a>
+            </div>
         </div>
     </nav>
 
-    <!-- CONTENIDO PRINCIPAL CON OVERLAY -->
     <div class="content-overlay">
-        
-        <!-- HERO -->
-        <section class="pt-32 pb-20 px-6 max-w-7xl mx-auto text-center md:text-left flex flex-col md:flex-row items-center gap-12 min-h-screen relative">
-            
-            <div class="flex-1 space-y-6 relative z-10">
-                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-                    <span class="text-amber-400">Donde la electricidad</span><br />
-                    <span class="text-cyan-400">y la IA se sincronizan</span>
+        <!-- SECCIÓN HERO -->
+        <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden flex items-center min-h-[85vh]">
+            <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+                <span class="quality-badge mb-6">Sincronización Avanzada de Ingeniería</span>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                    Donde la electricidad y la <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-cyan-400">IA se sincronizan</span>
                 </h1>
-                <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto md:mx-0 leading-relaxed">
-                    Soluciones integrales en ingeniería eléctrica, automatización digital, contenido multimedia y marketing inteligente con IA.
-                </p>
-                <div class="flex flex-wrap gap-4 justify-center md:justify-start pt-2">
-                    <a href="#encuesta" class="bg-amber-500 hover:bg-amber-600 text-slate-900 px-8 py-3.5 rounded-full font-semibold transition shadow-lg shadow-amber-500/25 hover-glow-amber">Descubre cómo potenciamos tu negocio</a>
-                    <a href="https://wa.me" target="_blank" rel="noopener" class="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3.5 rounded-full font-semibold transition shadow-lg shadow-cyan-500/20 hover-glow-cyan flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                        Chatear ahora
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Panel visual con logotipo ElectroSync -->
-            <div class="flex-1 flex justify-center relative">
-                <div class="tech-panel rounded-2xl p-8 relative max-w-md w-full">
-                    <div class="glow-dot" style="top: 15px; right: 20px;"></div>
-                    <div class="glow-dot cyan" style="bottom: 15px; left: 20px; animation-delay: 1.5s;"></div>
-                    
-                    <div class="logo-display text-center">
-                        <div class="text-5xl md:text-6xl font-black tracking-tight">
-                            <span class="text-amber-400">Electro</span><span class="text-cyan-400">Sync</span>
-                        </div>
-                        <div class="text-sm text-slate-400 mt-1 tracking-widest">⚡ ELECTRICIDAD · IA · INNOVACIÓN ⚡</div>
-                        <div class="flex justify-center gap-3 mt-4 flex-wrap">
-                            <span class="quality-badge">🔹 Precisión</span>
-                            <span class="quality-badge" style="border-color:#22d3ee30; color:#22d3ee;">🔹 Tecnología</span>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-5 flex justify-between items-center px-2">
-                        <div class="flex items-center gap-2">
-                            <div class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></div>
-                            <span class="text-xs text-slate-400">Sincronización activa</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <div class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></div>
-                            <span class="text-xs text-slate-400">IA en línea</span>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-3 bg-slate-800/50 rounded-full h-1.5 overflow-hidden border border-slate-700/50">
-                        <div class="h-full w-3/4 bg-gradient-to-r from-amber-400 to-cyan-400 rounded-full" style="width: 78%;"></div>
-                    </div>
-                    <div class="flex justify-between mt-1 text-[10px] text-slate-500 px-1">
-                        <span>⚡ Energía</span>
-                        <span>🧠 IA</span>
-                        <span>📶 Conectividad</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SERVICIOS -->
-        <section id="servicios" class="py-20 px-6 max-w-7xl mx-auto relative">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold"><span class="text-amber-400">Nuestros</span> <span class="text-cyan-400">Servicios</span></h2>
-                <p class="text-slate-400 text-lg mt-3 max-w-2xl mx-auto">Soluciones integrales que conectan la ingeniería con el mundo digital</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
-                <!-- 1 -->
-                <div class="service-card rounded-2xl p-7 space-y-3 border-l-4 border-amber-400">
-                    <div class="text-4xl">⚡</div>
-                    <h3 class="text-xl font-bold text-white">Ingeniería Eléctrica</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">Cálculos de circuitos, análisis de carga, simulación de fallos, eficiencia energética y asesoría en normativas.</p>
-                    <span class="inline-block text-xs font-medium text-amber-400/80 bg-amber-400/10 px-3 py-1 rounded-full">Precisión técnica</span>
-                </div>
-                <!-- 2 -->
-                <div class="service-card rounded-2xl p-7 space-y-3 border-l-4 border-cyan-400">
-                    <div class="text-4xl">📱</div>
-                    <h3 class="text-xl font-bold text-white">Marketing & Automatización</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">Automatización de redes, gestión de comunidades, organización de WhatsApp con Notion, SEO y campañas.</p>
-                    <span class="inline-block text-xs font-medium text-cyan-400/80 bg-cyan-400/10 px-3 py-1 rounded-full">Resultados medibles</span>
-                </div>
-                <!-- 3 -->
-                <div class="service-card rounded-2xl p-7 space-y-3 border-l-4 border-amber-400">
-                    <div class="text-4xl">📄</div>
-                    <h3 class="text-xl font-bold text-white">Contenido Premium</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">Redacción técnica, transcripción, traducción, eBooks interactivos, diapositivas profesionales y guiones.</p>
-                    <span class="inline-block text-xs font-medium text-amber-400/80 bg-amber-400/10 px-3 py-1 rounded-full">Calidad editorial</span>
-                </div>
-                <!-- 4 -->
-                <div class="service-card rounded-2xl p-7 space-y-3 border-l-4 border-cyan-400">
-                    <div class="text-4xl">🌐</div>
-                    <h3 class="text-xl font-bold text-white">Desarrollo Web</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">Páginas responsivas, landing de alto impacto, tiendas en línea, correos personalizados y UX/UI intuitivo.</p>
-                    <span class="inline-block text-xs font-medium text-cyan-400/80 bg-cyan-400/10 px-3 py-1 rounded-full">Tecnología avanzada</span>
-                </div>
-                <!-- 5 -->
-                <div class="service-card rounded-2xl p-7 space-y-3 border-l-4 border-amber-400">
-                    <div class="text-4xl">🤖</div>
-                    <h3 class="text-xl font-bold text-white">Soluciones con IA</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">Asistentes virtuales, generación de contenido, análisis predictivo, automatización de procesos y prompts profesionales.</p>
-                    <span class="inline-block text-xs font-medium text-amber-400/80 bg-amber-400/10 px-3 py-1 rounded-full">Innovación constante</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- CIERRE -->
-        <section class="py-20 px-6 max-w-4xl mx-auto text-center border-y border-slate-800/80 relative">
-            <h2 class="text-3xl md:text-5xl font-bold relative z-10">
-                <span class="text-amber-400">¿Listo para sincronizar</span> <span class="text-cyan-400">tu potencial?</span>
-            </h2>
-            <p class="text-slate-300 text-lg mt-4 max-w-2xl mx-auto relative z-10">Hablemos sin compromiso. Cuéntanos tu proyecto y te daremos una solución a la medida.</p>
-            <div class="flex flex-wrap justify-center gap-5 mt-8 relative z-10">
-                <a href="#encuesta" class="bg-amber-500 hover:bg-amber-600 text-slate-900 px-10 py-4 rounded-full font-bold transition shadow-lg shadow-amber-500/25">Quiero mi diagnóstico gratuito</a>
-                <a href="#servicios" class="border border-cyan-400/60 hover:bg-cyan-400/10 text-cyan-300 px-10 py-4 rounded-full font-semibold transition">Ver servicios</a>
-            </div>
-        </section>
-
-        <!-- ENCUESTA -->
-        <section id="encuesta" class="py-20 px-6 max-w-3xl mx-auto relative">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-bold">📋 Cuéntanos en 1 minuto qué necesitas</h2>
-                <p class="text-slate-400 mt-2">Completa este breve formulario y te asesoraremos sin costo</p>
-            </div>
-            <form action="https://formspree.io/f/xnpqjnzp" method="POST" class="space-y-6 bg-slate-800/50 p-8 rounded-2xl border border-slate-700/80 backdrop-blur-sm relative z-10">
-                <div>
-                    <label class="block text-sm font-medium mb-1 text-slate-300">Nombre completo</label>
-                    <input type="text" name="nombre" required placeholder="Javier Machado" class="w-full rounded-xl px-4 py-3 bg-slate-900/80 border border-slate-600 focus:border-amber-400 transition" />
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-1 text-slate-300">Correo electrónico</label>
-                    <input type="email" name="email" required placeholder="javier@correo.com" class="w-full rounded-xl px-4 py-3 bg-slate-900/80 border border-slate-600 focus:border-amber-400 transition" />
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-1 text-slate-300">¿Qué servicio te interesa más?</label>
-                    <select name="servicio" required class="w-full rounded-xl px-4 py-3 bg-slate-900/80 border border-slate-600 focus:border-amber-400 transition">
-                        <option value="">Selecciona una opción</option>
-                        <option>Ingeniería Eléctrica</option>
-                        <option>Marketing & Automatización</option>
-                        <option>Contenido Premium</option>
-                        <option>Desarrollo Web</option>
-                        <option>Soluciones con IA</option>
-                        <option>Otro</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-1 text-slate-300">¿Cuál es tu principal objetivo?</label>
-                    <textarea name="objetivo" rows="3" placeholder="Ej: Mejorar mi presencia digital, optimizar mi consumo eléctrico..." class="w-full rounded-xl px-4 py-3 bg-slate-900/80 border border-slate-600 focus:border-amber-400 transition"></textarea>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-1 text-slate-300">¿Cómo prefieres que te contactemos?</label>
-                    <select name="contacto" required class="w-full rounded-xl px-4 py-3 bg-slate-900/80 border border-slate-600 focus:border-amber-400 transition">
-                        <option value="">Selecciona una opción</option>
-                        <option>WhatsApp</option>
-                        <option>Correo Electrónico</option>
-                        <option>Llamada Telefónica</option>
-                    </select>
-                </div>
-                <button type="submit" class="w-full btn-submit py-4 rounded-xl text-lg shadow-lg shadow-amber-500/20">Enviar y recibir asesoría gratis</button>
-            </form>
-        </section>
-
-        <!-- FOOTER -->
-        <footer id="contacto" class="border-t border-slate-800/70 bg-slate-900/60 py-10 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-400">
-            <div class="text-2xl font-bold tracking-tight flex items-center gap-2">
-                <span class="text-amber-400">Electro</span><span class="text-cyan-400">Sync</span>
-                <span class="text-xs bg-amber-400/20 text-amber-300 px-2 py-0.5 rounded-full">⚡</span>
-            </div>
-            <div class="text-center">© 2026 ElectroSync - Soluciones que sincronizan tu mundo.</div>
-            <div>
-                <a href="mailto:jhonderescalona98@gmail.com" class="text-cyan-400 hover:text-amber-400 transition font-medium flex items-center gap-1">
-                    ✉️ jhonderescalona98@gmail.com
-                </a>
-            </div>
-        </footer>
-
-    </div>
-
-    <!-- BOTÓN WHATSAPP FLOTANTE -->
-    <a href="https://wa.me" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
-
-</body>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "VideoObject",
-      "name": "Portafolio ElectroSync - Proyectos de Ingeniería Eléctrica y Automatización",
-      "description": "Conozca nuestros proyectos más destacados en ingeniería eléctrica, automatización industrial y sistemas de control. ElectroSync ofrece soluciones innovadoras para el sector energético.",
-      "thumbnailUrl": "https://ejemplo.com/imagenes/thumbnail-portafolio.jpg",
-      "uploadDate": "2025-06-01",
-      "duration": "PT3M45S",
-      "contentUrl": "https://ejemplo.com/videos/portafolio-electrosync.mp4",
-      "embedUrl": "https://www.youtube.com/embed/VIDEO_ID",
-      "interactionCount": "1523",
-      "genre": "Ingeniería Eléctrica",
-      "keywords": "automatización industrial, ingeniería eléctrica, sistemas de control, proyectos eléctricos",
-      "author": {
-        "@type": "Organization",
-        "name": "ElectroSync"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "ElectroSync"
-      }
-    },
-    {
-      "@type": "ImageGallery",
-      "name": "Galería de Proyectos - ElectroSync",
-      "description": "Fotografías de nuestros proyectos más recientes en ingeniería eléctrica y automatización industrial.",
-      "image": [
-        {
-          "@type": "ImageObject",
-          "contentUrl": "https://ejemplo.com/imagenes/proyecto-01.jpg",
-          "name": "Instalación eléctrica industrial - Proyecto 1",
-          "caption": "Sistema de distribución eléctrica para planta automotriz",
-          "uploadDate": "2025-05-15",
-          "width": "1200",
-          "height": "800"
-        },
-        {
-          "@type": "ImageObject",
-          "contentUrl": "https://ejemplo.com/imagenes/proyecto-02.jpg",
-          "name": "Automatización de procesos - Proyecto 2",
-          "caption": "Panel de control y sistema SCADA para fábrica textil",
-          "uploadDate": "2025-05-20",
-          "width": "1200",
-          "height": "800"
-        },
-        {
-          "@type": "ImageObject",
-          "contentUrl": "https://ejemplo.com/imagenes/proyecto-03.jpg",
-          "name": "Eficiencia energética - Proyecto 3",
-          "caption": "Auditoría y optimización energética en edificio corporativo",
-          "uploadDate": "2025-05-25",
-          "width": "1200",
-          "height": "800"
-        },
-        {
-          "@type": "ImageObject",
-          "contentUrl": "https://ejemplo.com/imagenes/proyecto-04.jpg",
-          "name": "Sistemas de respaldo - Proyecto 4",
-          "caption": "Instalación de generadores y UPS para centro de datos",
-          "uploadDate": "2025-05-28",
-          "width": "1200",
-          "height": "800"
-        },
-        {
-          "@type": "ImageObject",
-          "contentUrl": "https://ejemplo.com/imagenes/proyecto-05.jpg",
-          "name": "Domótica y control - Proyecto 5",
-          "caption": "Sistema de automatización residencial de última generación",
-          "uploadDate": "2025-06-01",
-          "width": "1200",
-          "height": "800"
-        }
-      ],
-      "author": {
-        "@type": "Organization",
-        "name": "ElectroSync"
-      }
-    },
-    {
-      "@type": "Organization",
-      "name": "ElectroSync",
-      "alternateName": "ElectroSync Ingeniería",
-      "url": "https://tudominio.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://ejemplo.com/logos/electrosync-logo.png",
-        "width": "300",
-        "height": "100"
-      },
-      "description": "Empresa especializada en ingeniería eléctrica, automatización industrial y sistemas de control. Ofrecemos soluciones innovadoras para el sector energético e industrial.",
-      "email": "info@electrosync.com",
-      "telephone": "+54 11 5555-1234",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Av. Tecnológica 1234",
-        "addressLocality": "Buenos Aires",
-        "addressRegion": "CABA",
-        "postalCode": "C1000",
-        "addressCountry": "AR"
-      },
-      "foundingDate": "2015-03-15",
-      "founders": [
-        {
-          "@type": "Person",
-          "name": "Carlos Moreno"
-        },
-        {
-          "@type": "Person",
-          "name": "Laura Fernández"
-        }
-      ],
-      "numberOfEmployees": {
-        "@type": "QuantitativeValue",
-        "value": "25"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/electrosync",
-        "https://www.youtube.com/@ElectroSync",
-        "https://www.instagram.com/electrosync",
-        "https://www.facebook.com/ElectroSync"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+54 11 5555-1234",
-        "contactType": "customer service",
-        "availableLanguage": [
-          "Spanish",
-          "English"
-        ],
-        "hoursAvailable": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday"
-          ],
-          "opens": "09:00",
-          "closes": "18:00"
-        }
-      }
-    }
-  ]
-}
-</script>
-  </html>
+                <p class="text-base sm:text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
